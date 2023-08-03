@@ -18,10 +18,10 @@ function TextForm(props) {
     props.showAlert("Text cleared", "success");
   };
   const handleCopy = () => {
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    // var text = document.getElementById("myBox");
+    // text.select();
+    navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges();
     props.showAlert("Copied to clipboard", "success");
   };
   const handleExtraSpaces = () => {
@@ -101,7 +101,7 @@ function TextForm(props) {
         <h2>Your Text Summary</h2>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
